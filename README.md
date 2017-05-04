@@ -170,8 +170,13 @@ mAdapter.getFilter().filter(editable.toString(), new Filter.FilterListener() {
                   }
                });
    ```
-   
-   
+
+### PROGUARD CONFIGURATION
+
+Add this line to your proguard file
+```java
+-keep class com.burakeregar.easiestgenericrecycleradapter.base.** { *; }
+```
    
 ### LICENSE
 
