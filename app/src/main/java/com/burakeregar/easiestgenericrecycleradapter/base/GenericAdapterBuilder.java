@@ -6,8 +6,7 @@ public class GenericAdapterBuilder {
    private ArrayList<GenericAdapterModel> lModels          = new ArrayList<>();
    private boolean                        mIsFilterEnabled = false;
 
-   public GenericAdapterBuilder() {
-   }
+   public GenericAdapterBuilder() {}
 
    public GenericAdapterBuilder addModel(GenericAdapterModel model) {
       lModels.add(model);
