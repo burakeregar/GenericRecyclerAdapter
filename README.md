@@ -9,7 +9,7 @@ Create your ViewHolder class & extend GenericViewHolder
 public class YourViewHolder extends GenericViewHolder {
 	private YourModel mItem;
 
-    public StoryViewHolder(final View itemView) {
+    public YourViewHolder(final View itemView) {
         super(itemView);
     }
 
@@ -29,7 +29,7 @@ RecyclerView mMainRv;
 ```java
     mMainRv.setLayoutManager(new LinearLayoutManager(this)); //set your layout manager
     mAdapter = new GenericAdapterBuilder().addModel(
-    			R.layout.contact_row, //set your row's layout file
+    		R.layout.contact_row, //set your row's layout file
                 YourViewHolder.class, //set your view holder class
                 YourModel.class) // set your model class(If you use just String list, it can be just String.class)
                 .execute();
@@ -39,13 +39,13 @@ RecyclerView mMainRv;
 If your list contains different row types, you can add them like below;
 ```java
    mAdapter = new GenericAdapterBuilder().addModel(
-    			R.layout.contact_row, 
+    		R.layout.contact_row, 
                 YourViewHolder.class, 
                 YourModel.class).addModel(
-    			R.layout.second_row, 
+    		R.layout.second_row, 
                 YourSecondViewHolder.class, 
                 YourSecondModel.class).addModel(
-    			R.layout.third_row, 
+    		R.layout.third_row, 
                 YourThirdViewHolder.class, 
                 YourThirdModel.class)
                 .execute(); 
@@ -143,7 +143,8 @@ you can set & listen the result in your edittext's afterTextChanged method;
 mAdapter.getFilter().filter(editable.toString(), new Filter.FilterListener() {
                   @Override
                   public void onFilterComplete(int pI) {
-                     if (mAdapter.mObjectList == null || mAdapter.mObjectList.size() <= 0) 					{//If the search key is deleted, set the original list
+                     if (mAdapter.mObjectList == null || mAdapter.mObjectList.size() <= 0) {
+		     //If the search key is deleted, set the original list
                        mAdapter.addItem(mAdapter.mOriginalObjectList);
                      }
                   }
