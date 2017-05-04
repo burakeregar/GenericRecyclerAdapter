@@ -156,7 +156,7 @@ mAdapter.getFilter().filter(editable.toString(), new Filter.FilterListener() {
 
 MIT License
 
-Copyright (c) 2017 burakeregar
+Copyright (c) 2017 Burak Eregar
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
