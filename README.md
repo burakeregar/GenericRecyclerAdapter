@@ -27,7 +27,7 @@ Create your ViewHolder class & extend GenericViewHolder
 
 ```java
 public class YourViewHolder extends GenericViewHolder {
-	private YourModel mItem;
+    private YourModel mItem;
 
     public YourViewHolder(final View itemView) {
         super(itemView);
