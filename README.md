@@ -1,6 +1,9 @@
 # Easiest Generic Recycler Adapter
 
 Easiest way to use RecyclerView. Reduce boilerplate code!
+
+You can check it out [Demo Application](https://github.com/burakeregar/EasiestGenericRecyclerDemo)
+
 ### How to Use:
 
 Create your ViewHolder class & extend GenericViewHolder 
