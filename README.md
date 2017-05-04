@@ -4,6 +4,23 @@ Easiest way to use RecyclerView. Reduce boilerplate code! You don't need to writ
 
 You can check it out [Demo Application](https://github.com/burakeregar/EasiestGenericRecyclerDemo)
 
+### How to Setup:
+* Step 1. Add the JitPack repository to your build file
+Add it in your root build.gradle at the end of repositories:
+```java
+	allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+```
+* Step 2. Add the dependency
+```java
+	dependencies {
+		compile 'com.github.burakeregar:EasiestGenericRecyclerAdapter:-SNAPSHOT'
+	}
+```
 ### How to Use:
 
 Create your ViewHolder class & extend GenericViewHolder 
