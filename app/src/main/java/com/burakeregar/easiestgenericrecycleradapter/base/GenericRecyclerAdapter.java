@@ -9,7 +9,7 @@ import android.widget.Filter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GenericRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class GenericRecyclerAdapter extends RecyclerView.Adapter<GenericViewHolder> {
 
    public List mObjectList;
    public List mOriginalObjectList;
@@ -32,9 +32,9 @@ public class GenericRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.Vi
    }
 
    @Override
-   public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+   public GenericViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
       LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-      RecyclerView.ViewHolder holder   = null;
+      GenericViewHolder holder   = null;
       if (viewType != -1) {
          GenericAdapterModel lModel = mModels.get(viewType);
          View lView  = inflater.inflate(lModel.getLayout(), parent, false);
@@ -42,15 +42,15 @@ public class GenericRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.Vi
             Class mClass = lModel.getViewHolder();
             holder = (GenericViewHolder) mClass.getConstructor(View.class).newInstance(lView);
          } catch (Exception pE) {
-            pE.printStackTrace();
+            throw new RuntimeException(pE.getMessage());
          }
       }
       return holder;
    }
 
    @Override
-   public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-      ((GenericViewHolder) holder).bindData(mObjectList.get(position));
+   public void onBindViewHolder(GenericViewHolder holder, int position) {
+         holder.bindData(mObjectList.get(position));
    }
 
    @Override
