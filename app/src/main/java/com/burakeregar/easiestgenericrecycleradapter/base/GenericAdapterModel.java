@@ -1,7 +1,7 @@
 package com.burakeregar.easiestgenericrecycleradapter.base;
 
 public class GenericAdapterModel {
-   private int   mLayout;
+   private int mLayout;
    private Class mViewHolder;
    private Class mItemType;
 

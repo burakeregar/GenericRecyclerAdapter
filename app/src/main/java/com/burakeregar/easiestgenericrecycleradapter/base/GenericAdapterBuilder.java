@@ -3,8 +3,8 @@ package com.burakeregar.easiestgenericrecycleradapter.base;
 import java.util.ArrayList;
 
 public class GenericAdapterBuilder {
-   private ArrayList<GenericAdapterModel> lModels          = new ArrayList<>();
-   private boolean                        mIsFilterEnabled = false;
+   private final ArrayList<GenericAdapterModel> lModels = new ArrayList<>();
+   private boolean mIsFilterEnabled = false;
 
    public GenericAdapterBuilder() {}
 
