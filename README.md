@@ -4,6 +4,8 @@ Easiest way to use RecyclerView. Reduce boilerplate code! You don't need to writ
 
 You can check it out [Demo Application](https://github.com/burakeregar/EasiestGenericRecyclerDemo)
 
+[![](https://jitpack.io/v/burakeregar/EasiestGenericRecyclerAdapter.svg)](https://jitpack.io/#burakeregar/EasiestGenericRecyclerAdapter)
+
 ### How to Setup:
 * Step 1. Add the JitPack repository to your build file
 Add it in your root build.gradle at the end of repositories:
