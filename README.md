@@ -51,7 +51,7 @@ RecyclerView mMainRv;
 ```java
     mMainRv.setLayoutManager(new LinearLayoutManager(this)); //set your layout manager
     mAdapter = new GenericAdapterBuilder()
-                    .addModel(
+                .addModel(
     		        R.layout.contact_row, //set your row's layout file
                         YourViewHolder.class, //set your view holder class
                         YourModel.class) // set your model class(If you use just String list, it can be just String.class)
