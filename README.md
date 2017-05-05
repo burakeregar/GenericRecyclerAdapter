@@ -56,8 +56,8 @@ RecyclerView mMainRv;
                         YourViewHolder.class, //set your view holder class
                         YourModel.class) // set your model class(If you use just String list, it can be just String.class)
                 .execute();
-        mMainRv.setAdapter(mAdapter);
-    }
+    mMainRv.setAdapter(mAdapter);
+    
 ```
 If your list contains different row types, you can add them like below;
 ```java
@@ -75,7 +75,7 @@ If your list contains different row types, you can add them like below;
                         YourThirdViewHolder.class, 
                         YourThirdModel.class)
                 .execute(); 
-    }
+    
 ```
 Now you are ready to set your list!
 
