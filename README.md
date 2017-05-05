@@ -172,6 +172,9 @@ mAdapter.getFilter().filter(editable.toString(), new Filter.FilterListener() {
                   }
                });
    ```
+   
+### Contribution
+Feel free to add new features to the library, I am happy to accept pull requests.
 
 ### PROGUARD CONFIGURATION
 
