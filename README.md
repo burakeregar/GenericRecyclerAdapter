@@ -50,26 +50,30 @@ RecyclerView mMainRv;
 ```
 ```java
     mMainRv.setLayoutManager(new LinearLayoutManager(this)); //set your layout manager
-    mAdapter = new GenericAdapterBuilder().addModel(
-    		R.layout.contact_row, //set your row's layout file
-                YourViewHolder.class, //set your view holder class
-                YourModel.class) // set your model class(If you use just String list, it can be just String.class)
+    mAdapter = new GenericAdapterBuilder()
+                    .addModel(
+    		                  R.layout.contact_row, //set your row's layout file
+                        YourViewHolder.class, //set your view holder class
+                        YourModel.class) // set your model class(If you use just String list, it can be just String.class)
                 .execute();
         mMainRv.setAdapter(mAdapter);
     }
 ```
 If your list contains different row types, you can add them like below;
 ```java
-   mAdapter = new GenericAdapterBuilder().addModel(
-    		R.layout.contact_row, 
-                YourViewHolder.class, 
-                YourModel.class).addModel(
-    		R.layout.second_row, 
-                YourSecondViewHolder.class, 
-                YourSecondModel.class).addModel(
-    		R.layout.third_row, 
-                YourThirdViewHolder.class, 
-                YourThirdModel.class)
+   mAdapter = new GenericAdapterBuilder()
+                .addModel(
+    		                  R.layout.contact_row, 
+                        YourViewHolder.class, 
+                        YourModel.class)
+                .addModel(
+    		                  R.layout.second_row, 
+                        YourSecondViewHolder.class, 
+                        YourSecondModel.class)
+                .addModel(
+    		                  R.layout.third_row, 
+                        YourThirdViewHolder.class, 
+                        YourThirdModel.class)
                 .execute(); 
     }
 ```
@@ -106,10 +110,11 @@ List<YourModel> mList = mAdapter.getItems();
 ### Using with Filter
 If you want to use filter with your recyclerview for searching etc. you have to enable & set filter like below;
 ```java
-mAdapter = new GenericAdapterBuilder().addModel(
-    			R.layout.contact_row, 
-                YourViewHolder.class, 
-                YourModel.class)
+mAdapter = new GenericAdapterBuilder()
+                .addModel(
+    			                R.layout.contact_row, 
+                       YourViewHolder.class, 
+                       YourModel.class)
                 .setFilterEnabled() //important!
                 .execute();
                 

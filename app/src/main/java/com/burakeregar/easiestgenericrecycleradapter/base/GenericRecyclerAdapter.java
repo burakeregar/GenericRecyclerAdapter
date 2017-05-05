@@ -15,7 +15,7 @@ public class GenericRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.Vi
    public List mOriginalObjectList;
    private ArrayList<GenericAdapterModel> mModels;
    private Filter mFilter;
-   private boolean                        mIsFilterEnabled;
+   private boolean mIsFilterEnabled;
 
    public GenericRecyclerAdapter(ArrayList<GenericAdapterModel> pModels) {
       mModels = pModels;
