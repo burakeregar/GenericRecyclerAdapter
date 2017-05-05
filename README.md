@@ -2,7 +2,7 @@
 
 Easiest way to use RecyclerView. Reduce boilerplate code! You don't need to write adapters for listing pages anymore!
 
-You can check it out [Demo Application](https://github.com/burakeregar/EasiestGenericRecyclerDemo)
+You can check it out [Demo Application here](https://github.com/burakeregar/EasiestGenericRecyclerDemo)
 
 [![](https://jitpack.io/v/burakeregar/EasiestGenericRecyclerAdapter.svg)](https://jitpack.io/#burakeregar/EasiestGenericRecyclerAdapter)
 
