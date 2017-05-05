@@ -18,7 +18,7 @@ Add it in your root build.gradle at the end of repositories:
 * Step 2. Add the dependency
 ```java
 	dependencies {
-		compile 'com.github.burakeregar:EasiestGenericRecyclerAdapter:-SNAPSHOT'
+		compile 'com.github.burakeregar:EasiestGenericRecyclerAdapter:v1.0'
 	}
 ```
 ### How to Use:
