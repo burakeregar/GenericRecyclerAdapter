@@ -89,7 +89,7 @@ List<Object> mList
 ```
 then you can set your list like this.
 ```java
-mAdapter.addItem(mList);
+mAdapter.setList(mList);
 ```
 if you want to add new row(s) to your existing list, you can use addNewRows method. You can pass any object or object list to addNewRows method like below;
 ```java
