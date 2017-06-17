@@ -72,6 +72,8 @@ public class GenericRecyclerAdapter extends RecyclerView.Adapter<GenericViewHold
     public void setList(List pObjectList) {
         if (this.mObjectList == null) {
             this.mObjectList = new ArrayList();
+        } else {
+            this.mObjectList.clear();
         }
         mObjectList.addAll(pObjectList);
         if (mIsFilterEnabled) {
