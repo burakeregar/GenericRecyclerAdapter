@@ -70,11 +70,10 @@ public class GenericRecyclerAdapter extends RecyclerView.Adapter<GenericViewHold
     }
 
     public void setList(List pObjectList) {
-        if (this.mObjectList == null) {
-            this.mObjectList = new ArrayList();
-        } else {
-            this.mObjectList.clear();
-        }
+        if(pObjectList == null)
+            return;
+        createIfNull();
+        this.mObjectList.clear();
         mObjectList.addAll(pObjectList);
         if (mIsFilterEnabled) {
             mOriginalObjectList = pObjectList;
@@ -87,9 +86,9 @@ public class GenericRecyclerAdapter extends RecyclerView.Adapter<GenericViewHold
     }
 
     public void addNewRows(List pObjectList) {
-        if (this.mObjectList == null) {
-            this.mObjectList = new ArrayList();
-        }
+        if(pObjectList == null)
+            return;
+        createIfNull();
         mObjectList.addAll(pObjectList);
         if (mIsFilterEnabled) {
             mOriginalObjectList = mObjectList;
@@ -98,14 +97,20 @@ public class GenericRecyclerAdapter extends RecyclerView.Adapter<GenericViewHold
     }
 
     public void addNewRows(Object pObject) {
-        if (this.mObjectList == null) {
-            this.mObjectList = new ArrayList();
-        }
+        if(pObject == null)
+            return;
+        createIfNull();
         mObjectList.add(pObject);
         if (mIsFilterEnabled) {
             mOriginalObjectList = mObjectList;
         }
         notifyDataSetChanged();
+    }
+
+    private void createIfNull(){
+        if (this.mObjectList == null) {
+            this.mObjectList = new ArrayList();
+        }
     }
 
     public Filter getFilter() {
