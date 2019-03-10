@@ -1,4 +1,4 @@
-# Easiest Generic Recycler Adapter
+# Generic Recycler Adapter
 
 Easiest way to use RecyclerView. Reduce boilerplate code! You don't need to write adapters for listing pages anymore!
 
