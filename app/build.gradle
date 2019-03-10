@@ -1,4 +1,6 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
 apply plugin: 'com.github.dcendents.android-maven'
 group='com.github.burakeregar'
 android {
@@ -25,4 +27,8 @@ dependencies {
     testCompile 'junit:junit:4.12'
     testCompile "org.mockito:mockito-inline:2.13.0"
     testCompile "org.robolectric:robolectric:3.8"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}
+repositories {
+    mavenCentral()
 }

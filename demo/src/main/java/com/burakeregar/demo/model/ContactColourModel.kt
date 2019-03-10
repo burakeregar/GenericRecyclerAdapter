@@ -1,3 +1,3 @@
 package com.burakeregar.demo.model
 
-class ContactColourModel(var name: String, var surname: String)
+data class ContactColourModel(var name: String, var surname: String, var colour: Int)

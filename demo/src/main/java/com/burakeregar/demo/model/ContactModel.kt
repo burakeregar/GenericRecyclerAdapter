@@ -1,3 +1,3 @@
 package com.burakeregar.demo.model
 
-class ContactModel(var name: String, var surname: String)
+data class ContactModel(var name: String, var surname: String)
