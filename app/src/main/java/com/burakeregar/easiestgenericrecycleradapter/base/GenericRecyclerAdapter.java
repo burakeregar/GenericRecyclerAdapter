@@ -11,24 +11,23 @@ import java.util.List;
 
 public class GenericRecyclerAdapter extends RecyclerView.Adapter<GenericViewHolder> {
 
-    public List mObjectList;
-    public List mOriginalObjectList;
-    private ArrayList<GenericAdapterModel> mModels;
-    private Filter mFilter;
-    private boolean mIsFilterEnabled;
+    private List itemList = new ArrayList();
+    private List originalItemList = new ArrayList();
+    private List<GenericAdapterModel> modelList = new ArrayList<>();
+    private Filter filter;
+    private boolean isFilterEnabled;
 
     public GenericRecyclerAdapter(ArrayList<GenericAdapterModel> pModels) {
-        mModels = pModels;
+        modelList = pModels;
     }
 
     public GenericRecyclerAdapter(ArrayList<GenericAdapterModel> pModels, boolean pIsFilterEnabled) {
-        mModels = pModels;
-        mIsFilterEnabled = pIsFilterEnabled;
+        modelList = pModels;
+        isFilterEnabled = pIsFilterEnabled;
     }
 
     public GenericRecyclerAdapter(int pLayout, Class pViewHolder, Class pItemType) {
-        mModels = new ArrayList<>();
-        mModels.add(new GenericAdapterModel(pLayout, pViewHolder, pItemType));
+        modelList.add(new GenericAdapterModel(pLayout, pViewHolder, pItemType));
     }
 
     @Override
@@ -36,7 +35,7 @@ public class GenericRecyclerAdapter extends RecyclerView.Adapter<GenericViewHold
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         GenericViewHolder holder = null;
         if (viewType != -1) {
-            GenericAdapterModel lModel = mModels.get(viewType);
+            GenericAdapterModel lModel = modelList.get(viewType);
             View lView = inflater.inflate(lModel.getLayout(), parent, false);
             try {
                 Class mClass = lModel.getViewHolder();
@@ -50,14 +49,14 @@ public class GenericRecyclerAdapter extends RecyclerView.Adapter<GenericViewHold
 
     @Override
     public void onBindViewHolder(GenericViewHolder holder, int position) {
-        holder.bindData(mObjectList.get(position));
+        holder.bindData(itemList.get(position));
     }
 
     @Override
     public int getItemViewType(int position) {
-        Class<?> lItemClass = mObjectList.get(position).getClass();
-        for (int i = 0; i < mModels.size(); i++) {
-            if (mModels.get(i).getItemType().equals(lItemClass)) {
+        Class<?> lItemClass = itemList.get(position).getClass();
+        for (int i = 0; i < modelList.size(); i++) {
+            if (modelList.get(i).getItemType().equals(lItemClass)) {
                 return i;
             }
         }
@@ -66,58 +65,46 @@ public class GenericRecyclerAdapter extends RecyclerView.Adapter<GenericViewHold
 
     @Override
     public int getItemCount() {
-        return mObjectList != null ? mObjectList.size() : 0;
+        return itemList.size();
     }
 
-    public void setList(List pObjectList) {
-        if(pObjectList == null)
-            return;
-        createIfNull();
-        this.mObjectList.clear();
-        mObjectList.addAll(pObjectList);
-        if (mIsFilterEnabled) {
-            mOriginalObjectList = pObjectList;
-        }
+    public void setList(List list) {
+        if (list == null) return;
+        itemList.clear();
+        itemList.addAll(list);
+        handleFilter();
         notifyDataSetChanged();
     }
 
     public List getItems() {
-        return mObjectList;
+        return itemList;
     }
 
-    public void addNewRows(List pObjectList) {
-        if(pObjectList == null)
-            return;
-        createIfNull();
-        mObjectList.addAll(pObjectList);
-        if (mIsFilterEnabled) {
-            mOriginalObjectList = mObjectList;
-        }
+    public void addNewRows(List list) {
+        if (list == null) return;
+        itemList.addAll(list);
+        handleFilter();
         notifyDataSetChanged();
     }
 
-    public void addNewRows(Object pObject) {
-        if(pObject == null)
-            return;
-        createIfNull();
-        mObjectList.add(pObject);
-        if (mIsFilterEnabled) {
-            mOriginalObjectList = mObjectList;
-        }
+    public void addNewRows(Object item) {
+        if (item == null) return;
+        itemList.add(item);
+        handleFilter();
         notifyDataSetChanged();
-    }
-
-    private void createIfNull(){
-        if (this.mObjectList == null) {
-            this.mObjectList = new ArrayList();
-        }
     }
 
     public Filter getFilter() {
-        return mFilter;
+        return filter;
     }
 
     public void setFilter(Filter pFilter) {
-        mFilter = pFilter;
+        filter = pFilter;
+    }
+
+    private void handleFilter() {
+        if (isFilterEnabled) {
+            originalItemList = itemList;
+        }
     }
 }
