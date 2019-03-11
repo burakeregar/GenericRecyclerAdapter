@@ -17,17 +17,17 @@ public class GenericRecyclerAdapter extends RecyclerView.Adapter<GenericViewHold
     private Filter filter;
     private boolean isFilterEnabled;
 
-    public GenericRecyclerAdapter(ArrayList<GenericAdapterModel> pModels) {
-        modelList = pModels;
+    public GenericRecyclerAdapter(ArrayList<GenericAdapterModel> models) {
+        modelList = models;
     }
 
-    public GenericRecyclerAdapter(ArrayList<GenericAdapterModel> pModels, boolean pIsFilterEnabled) {
-        modelList = pModels;
-        isFilterEnabled = pIsFilterEnabled;
+    public GenericRecyclerAdapter(ArrayList<GenericAdapterModel> models, boolean isFilterEnabled) {
+        modelList = models;
+        this.isFilterEnabled = isFilterEnabled;
     }
 
-    public GenericRecyclerAdapter(int pLayout, Class pViewHolder, Class pItemType) {
-        modelList.add(new GenericAdapterModel(pLayout, pViewHolder, pItemType));
+    public GenericRecyclerAdapter(int layout, Class viewHolder, Class itemType) {
+        modelList.add(new GenericAdapterModel(layout, viewHolder, itemType));
     }
 
     @Override
@@ -98,8 +98,16 @@ public class GenericRecyclerAdapter extends RecyclerView.Adapter<GenericViewHold
         return filter;
     }
 
-    public void setFilter(Filter pFilter) {
-        filter = pFilter;
+    public void setFilter(Filter filter) {
+        this.filter = filter;
+    }
+
+    public List getOriginalItemList() {
+        return originalItemList;
+    }
+
+    public List getItemList() {
+        return itemList;
     }
 
     private void handleFilter() {

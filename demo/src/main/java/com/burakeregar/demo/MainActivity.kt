@@ -7,12 +7,14 @@ import com.burakeregar.demo.model.ContactModel
 import com.burakeregar.demo.viewholder.ContactViewHolder
 import com.burakeregar.easiestgenericrecycleradapter.base.GenericAdapterBuilder
 import android.support.v7.widget.LinearLayoutManager
+import android.text.Editable
+import android.text.TextWatcher
+import com.burakeregar.demo.filter.SearchFilter
 import com.burakeregar.demo.model.ContactColourModel
 import com.burakeregar.demo.viewholder.ContactColourViewHolder
 import kotlinx.android.synthetic.main.activity_main.*
 import com.burakeregar.easiestgenericrecycleradapter.base.GenericRecyclerAdapter
 import java.util.*
-
 
 class MainActivity : AppCompatActivity() {
 
@@ -25,6 +27,21 @@ class MainActivity : AppCompatActivity() {
         initAdapter()
 
         adapter.setList(createDummyData())
+
+        editText.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+
+            override fun afterTextChanged(editable: Editable?) {
+                with(adapter) {
+                    filter.filter(editable.toString()) {
+                        if (itemCount <= 0) {
+                            setList(originalItemList)
+                        }
+                    }
+                }
+            }
+        })
     }
 
     private fun initAdapter() {
@@ -40,7 +57,9 @@ class MainActivity : AppCompatActivity() {
                         ContactColourViewHolder::class.java,
                         ContactColourModel::class.java
                 )
+                .setFilterEnabled()
                 .execute()
+        adapter.filter = SearchFilter(adapter)
         recyclerView.adapter = adapter
     }
 
